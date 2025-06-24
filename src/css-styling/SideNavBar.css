@@ -1,0 +1,38 @@
+.side-bar-tags{
+    display: flex;
+    position: relative;
+    align-items: center;
+    padding: 0 10px;
+    /* left: 10px; */
+}
+
+
+
+.side-bar-tags:hover{
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: #3779bb;
+}
+
+.side-bar-icon{
+    font-size: 20px;
+    color: rgb(31, 26, 26);
+    margin-left: 0px;
+    font-weight: 500;
+    position: relative;
+    left: 0px;
+    top: 12px;
+    padding: 0px 0px 25px 5px;
+}
+
+.logos-name{
+    font-size: 20px;
+    color: rgba(218, 223, 213, 0.863);
+    margin-left: 15px;
+    font-weight: 500;
+    font-family: "Poppins", sans-serif;
+    position: relative;
+    left: 0px;
+    top: 0px;
+    padding: 0px 0px 0px 5px;  
+}
