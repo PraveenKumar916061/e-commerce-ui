@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import '../css-styling/Login.css';
 import {loginUser}from '../services/userService';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faUser,faLock} from '@fortawesome/free-solid-svg-icons';
+import {faUser,faLock, faEye, faEyeSlash} from '@fortawesome/free-solid-svg-icons';
 
 
 function Login() {
@@ -12,9 +12,8 @@ function Login() {
         password: ''
     });
     const navigate = useNavigate();
-
     const [error, setError] = useState('');
-    
+    const [showPassword, setShowPassword] = useState(false);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -56,10 +55,10 @@ function Login() {
                         />
                         <FontAwesomeIcon className="font-lock" icon={faUser} />
                     </div>
-                    <div className="form-group">
+                    <div className="form-group" style={{position: 'relative'}}>
                         <label htmlFor="password">Password</label>
                         <input
-                            type="password"
+                            type={showPassword ? "text" : "password"}
                             id="password"
                             name="password"
                             value={loginRequest.password}
@@ -68,6 +67,14 @@ function Login() {
                             placeholder="Enter your password"
                         />
                         <FontAwesomeIcon className="font-lock" icon={faLock} />
+                        <button
+                            type="button"
+                            className="toggle-password"
+                            onClick={() => setShowPassword((prev) => !prev)}
+                            aria-label={showPassword ? 'Hide password' : 'Show password'}
+                        >
+                            <FontAwesomeIcon icon={showPassword ? faEyeSlash : faEye} />
+                        </button>
                     </div>
                     
                     <button type="submit">Sign In</button>

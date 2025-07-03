@@ -158,3 +158,24 @@ input:-webkit-autofill:focus {
     right: 10px;
     color: #666;
 } */
+
+.form-group .toggle-password {
+    position: absolute;
+    right: 35px;
+    top: 42px;
+    cursor: pointer;
+    color: #888;
+    z-index: 2;
+    background: none;
+    border: none;
+    padding: 0;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    transition: color 0.2s;
+}
+.form-group .toggle-password:hover,
+.form-group .toggle-password:focus {
+    color: #0072ff;
+    outline: none;
+}

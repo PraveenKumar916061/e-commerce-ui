@@ -1,0 +1,27 @@
+.logout-btn {
+    position: absolute;
+    top: 20px;
+    right: 32px;
+    padding: 6px 18px;
+    background: linear-gradient(90deg, #3a7bd5 0%, #00d2ff 100%);
+    color: #fff;
+    border: none;
+    border-radius: 18px;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 8px rgba(58, 123, 213, 0.10);
+    cursor: pointer;
+    transition: background 0.2s, box-shadow 0.2s, transform 0.1s;
+    z-index: 10;
+    outline: none;
+    display: flex;
+    align-items: center;
+    font-family: 'Poppins', Arial, sans-serif;
+    text-transform: none;
+}
+.logout-btn:hover, .logout-btn:focus {
+    background: linear-gradient(90deg, #00c6ff 0%, #3a7bd5 100%);
+    box-shadow: 0 4px 16px rgba(58, 123, 213, 0.15);
+    transform: translateY(-1px) scale(1.03);
+}
