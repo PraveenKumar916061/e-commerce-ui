@@ -130,6 +130,60 @@ button[type="submit"]:active {
     text-decoration: underline;
 }
 
+/* Success Popup */
+.success-popup {
+    position: fixed;
+    top: 32px;
+    right: 32px;
+    z-index: 9999;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(60, 120, 60, 0.12);
+    padding: 20px 32px 18px 24px;
+    min-width: 320px;
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    border-left: 6px solid #4caf50;
+    font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;
+    animation: fadeInPop 0.3s;
+}
+.success-popup .success-icon {
+    color: #4caf50;
+    font-size: 1.7rem;
+    margin-top: 2px;
+}
+.success-popup .success-content {
+    flex: 1;
+}
+.success-popup .success-title {
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: #222;
+    margin-bottom: 2px;
+}
+.success-popup .success-message {
+    color: #444;
+    font-size: 0.98rem;
+}
+.success-popup .close-btn {
+    background: none;
+    border: none;
+    color: #888;
+    font-size: 1.2rem;
+    cursor: pointer;
+    margin-left: 12px;
+    margin-top: 2px;
+    transition: color 0.2s;
+}
+.success-popup .close-btn:hover {
+    color: #222;
+}
+@keyframes fadeInPop {
+    0% { opacity: 0; transform: translateY(-20px) scale(0.98); }
+    100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .register-container {

@@ -8,9 +8,9 @@ export const loginUser = async (credentials) => {
       }
     });
 
-    if (response.data && response.data.token) {
+    if (response.data?.token) {
       localStorage.setItem('authToken', response.data.token);
-      console.log("User logged in successfully:", response.data.token);
+      console.log("User logged in successfully");
       return response.data;
     }
     throw new Error('No authentication token received');
@@ -35,7 +35,6 @@ export const logoutUser = () => {
 export const registerUser = async(userData) => {
   try {
     const userResponse = await axios.post('/api/users/create-user', userData);
-    console.log('user data:', userResponse);
     return userResponse.data;
   } catch(error) {
     console.log('Registration failed...', error.response ? error.response.data : error.message);
