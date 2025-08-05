@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBoxesStacked ,faTag,faClipboardList} from "@fortawesome/free-solid-svg-icons";
+import { faBoxesStacked ,faTag,faClipboardList, faUser } from "@fortawesome/free-solid-svg-icons";
 import '../css-styling/SideNavBar.css';
 import { useNavigate } from 'react-router-dom';
 
@@ -21,6 +21,10 @@ function SideNavBar(){
             <div className="side-bar-tags" onClick={()=>navigate('inventory')}>
                 <FontAwesomeIcon className="side-bar-icon" icon={faBoxesStacked} />
                 <h2 className="logos-name">Inventory</h2>
+            </div>
+            <div className="side-bar-tags" onClick={()=>navigate('users')}>
+                <FontAwesomeIcon className="side-bar-icon" icon={faUser} />
+                <h2 className="logos-name">Users</h2>
             </div>
         </div>
     )

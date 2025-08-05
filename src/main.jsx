@@ -9,6 +9,7 @@ import Products from './comps/Products.jsx'
 import Orders from './comps/Orders.jsx'
 import Inventory from './comps/Inventory.jsx'
 import HomeContent from './comps/HomeContent.jsx'
+import UserDetails from './comps/UserDetails.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -22,6 +23,7 @@ createRoot(document.getElementById('root')).render(
           <Route path="products" element={<Products />} />
           <Route path="orders" element={<Orders />} />
           <Route path="inventory" element={<Inventory />} />
+          <Route path="users" element={<UserDetails />} />
         </Route>
         
       </Routes>
