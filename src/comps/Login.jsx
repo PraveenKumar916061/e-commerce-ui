@@ -4,6 +4,7 @@ import '../css-styling/Login.css';
 import {loginUser}from '../services/userService';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faUser,faLock, faEye, faEyeSlash} from '@fortawesome/free-solid-svg-icons';
+import { faCheckCircle, faTimes } from '@fortawesome/free-solid-svg-icons';
 
 
 function Login() {
@@ -14,6 +15,7 @@ function Login() {
     const navigate = useNavigate();
     const [error, setError] = useState('');
     const [showPassword, setShowPassword] = useState(false);
+    const [success, setSuccess] = useState(false);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -25,10 +27,15 @@ function Login() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        setError('')
+        setError('');
+        setSuccess(false);
         try {
             await loginUser(loginRequest);
-            navigate('/dashboard'); // or your dashboard route
+            setSuccess(true);
+            setTimeout(() => {
+                setSuccess(false);
+                navigate('/dashboard');
+            }, 500);
         } catch (error) {
             console.error('Login error:', error);
             setError(error.message || 'Invalid username or password. Please try again.');
@@ -87,6 +94,18 @@ function Login() {
                     </span>
                 </p>
             </div>
+            {success && (
+                <div className="success-popup">
+                    <FontAwesomeIcon icon={faCheckCircle} className="success-icon" />
+                    <div className="success-content">
+                        <div className="success-title">Success</div>
+                        <div className="success-message">Login successful!</div>
+                    </div>
+                    <button className="close-btn" onClick={() => setSuccess(false)} aria-label="Close">
+                        <FontAwesomeIcon icon={faTimes} />
+                    </button>
+                </div>
+            )}
         </div>
     );
 }

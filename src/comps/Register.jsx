@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import '../css-styling/Register.css';
 import { registerUser } from '../services/userService';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';              
+import { faEye, faEyeSlash, faCheckCircle, faTimes } from '@fortawesome/free-solid-svg-icons';              
 
 function Register() {
     const navigate = useNavigate();
@@ -17,6 +17,7 @@ function Register() {
         phone: ''
     });
     const [error, setError] = useState('');
+    const [success, setSuccess] = useState(false);
 
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setConfirmPassword] = useState(false);
@@ -71,9 +72,11 @@ function Register() {
                 phone: formData.phone
             };
 
-            const user = await registerUser(userData);
-            console.log("Registration successful:", user);
-            navigate('/login');
+            await registerUser(userData);
+            setSuccess(true);
+            setTimeout(() => {
+                navigate('/login');
+            },500);
         } catch (error) {
             console.error("Registration failed:", error);
             setError('Registration failed. Please try again.');
@@ -94,6 +97,18 @@ function Register() {
             <div className="register-box">
                 <h2>Create Account</h2>
                 {error && <div className="error-message" style={{color: 'red', marginBottom: '10px'}}>{error}</div>}
+                {success && (
+                    <div className="success-popup">
+                        <FontAwesomeIcon icon={faCheckCircle} className="success-icon" />
+                        <div className="success-content">
+                            <div className="success-title">Success</div>
+                            <div className="success-message">Successfully registered!</div>
+                        </div>
+                        <button className="close-btn" onClick={() => setSuccess(false)} aria-label="Close">
+                            <FontAwesomeIcon icon={faTimes} />
+                        </button>
+                    </div>
+                )}
                 <form onSubmit={handleSubmit} >
                     <div className="form-grid">
                         <div className="form-group">
