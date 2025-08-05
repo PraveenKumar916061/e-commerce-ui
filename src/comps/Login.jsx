@@ -35,7 +35,7 @@ function Login() {
             setTimeout(() => {
                 setSuccess(false);
                 navigate('/dashboard');
-            }, 500);
+            }, 1500);
         } catch (error) {
             console.error('Login error:', error);
             setError(error.message || 'Invalid username or password. Please try again.');
