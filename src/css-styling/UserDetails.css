@@ -122,6 +122,43 @@
     background: #757575;
     color: #fff;
 }
+.user-table input[type="text"],
+.user-table input[type="email"],
+.user-table input[type="number"],
+.user-table select {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-family: inherit;
+    background: #fff;
+    color: #222;
+    outline: none;
+    transition: border 0.18s, box-shadow 0.18s;
+    box-sizing: border-box;
+    margin: 2px 0;
+    box-shadow: 0 1px 2px rgba(60,72,88,0.06);
+    font-weight: 400;
+    letter-spacing: 0.01em;
+}
+.user-table input[type="text"]:focus,
+.user-table input[type="email"]:focus,
+.user-table input[type="number"]:focus,
+.user-table select:focus {
+    border-color: #1976d2;
+    box-shadow: 0 0 0 2px #e3eafc;
+    background: #f5faff;
+}
+.user-table input[type="text"]::placeholder,
+.user-table input[type="email"]::placeholder {
+    color: #b0b0b0;
+    opacity: 1;
+}
+.user-table select {
+    font-weight: 400;
+    background: #fff;
+}
 @media (max-width: 700px) {
     .user-details-container {
         padding: 1rem 0.2rem;
